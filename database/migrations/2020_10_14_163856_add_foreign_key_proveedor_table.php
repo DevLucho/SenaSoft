@@ -27,7 +27,7 @@ class AddForeignKeyProveedorTable extends Migration
      */
     public function down()
     {
-        Schema::table('proveedorese', function (Blueprint $table) {
+        Schema::table('proveedores', function (Blueprint $table) {
             $table->dropForeign('proveedores_usuario_id_foreign');
         });
     }

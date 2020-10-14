@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Usuario;
 use App\Models\Rol;
 use App\Models\Empresa;
+use App\Models\Bodega;
 
 
 
@@ -29,6 +30,11 @@ class EmpresaController extends Controller
      $empresa->telefono  = $request->telefono;
      $empresa->logo = $request->logo;
      $empresa->save();
+     $bodega = new Bodega();
+     $bodega->usuario = $user->id;
+     $bodega->empresa = $empresa->id;
+     $bodega->save();
+
 
      
 
