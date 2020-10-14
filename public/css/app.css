@@ -10903,3 +10903,14 @@ a.text-dark:focus {
   }
 }
 
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.logo {
+  width: 3rem;
+  height: 3rem;
+  margin-top: -0.5rem;
+  margin-right: 1rem;
+}
+
