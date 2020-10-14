@@ -19,14 +19,14 @@
                 <!-- Authentication Links -->
                     <li class="nav-item dropdown">
                          <a href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                Cerrar sesión
-                            </a>
+                            onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                            Cerrar sesión
+                        </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </li>
             </ul>
         </div>
