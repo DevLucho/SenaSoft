@@ -16,6 +16,8 @@ class CreateBodegaProductoTable extends Migration
         Schema::create('bodega_producto', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('cantExistente');
+            $table->double('precioUnitario');
             $table->timestamps();
         });
     }
