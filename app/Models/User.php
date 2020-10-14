@@ -40,4 +40,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role(){
+        return $this->belongsTo('App\Role');
+    }
+
+    public function Admin(){
+        if($this->role->nombre_rol=='Administrador'){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
