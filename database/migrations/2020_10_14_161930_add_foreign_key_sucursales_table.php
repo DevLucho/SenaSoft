@@ -18,7 +18,7 @@ class AddForeignKeySucursalesTable extends Migration
             $table->foreign('empresa')->references('id')->on('empresas')
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->integer('usuario')->unsigned();
-            $table->foreign('usuario')->references('id')->on('usuarios')
+            $table->foreign('usuario')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
     }
