@@ -16,7 +16,6 @@ class CreateEmpresaTable extends Migration
         Schema::create('empresas', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('razonSocial', 100);
             $table->string('directorGeneral', 80);
             $table->string('nit', 20);
             $table->string('direccion', 100);

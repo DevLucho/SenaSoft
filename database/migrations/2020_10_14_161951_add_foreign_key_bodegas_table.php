@@ -15,7 +15,7 @@ class AddForeignKeyBodegasTable extends Migration
     {
         Schema::table('bodegas', function (Blueprint $table) {
             $table->integer('usuario')->unsigned();
-            $table->foreign('usuario')->references('id')->on('usuarios')
+            $table->foreign('usuario')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->integer('empresa')->unsigned();
             $table->foreign('empresa')->references('id')->on('empresas')
