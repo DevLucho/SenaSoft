@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class SucursalController extends Controller
 {
     public function create(){
+        return view('sucursales.create');
 
     }
     public function store(){
