@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeyProveedorTable extends Migration
+class AddForeignKeyProveedoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class AddForeignKeyProveedorTable extends Migration
     {
         Schema::table('proveedores', function (Blueprint $table) {
             $table->integer('usuario')->unsigned();
-            $table->foreign('usuario')->references('id')->on('usuarios')
+            $table->foreign('usuario')->references('id')->on('users')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
     }
