@@ -13,8 +13,9 @@ class CreateBodegaProductoTable extends Migration
      */
     public function up()
     {
-        Schema::create('Bodega_producto', function (Blueprint $table) {
-            $table->id();
+        Schema::create('bodega_producto', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateBodegaProductoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Bodega_producto');
+        Schema::dropIfExists('bodega_producto');
     }
 }

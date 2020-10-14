@@ -13,8 +13,12 @@ class CreateFacturaTable extends Migration
      */
     public function up()
     {
-        Schema::create('Factura', function (Blueprint $table) {
-            $table->id();
+        Schema::create('facturas', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->enum('estado', ['Finalizada', 'Borrador', 'En espera']);
+            $table->double('valorNeto');
+            $table->double('valorTotal');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateFacturaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Factura');
+        Schema::dropIfExists('facturas');
     }
 }

@@ -13,8 +13,9 @@ class CreateFacturaProductoTable extends Migration
      */
     public function up()
     {
-        Schema::create('Factura_producto', function (Blueprint $table) {
-            $table->id();
+        Schema::create('factura_producto', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateFacturaProductoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Factura_producto');
+        Schema::dropIfExists('factura_producto');
     }
 }

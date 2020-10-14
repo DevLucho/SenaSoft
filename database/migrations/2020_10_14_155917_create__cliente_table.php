@@ -13,8 +13,12 @@ class CreateClienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('Cliente', function (Blueprint $table) {
-            $table->id();
+        Schema::create('clientes', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('nombre', 100);
+            $table->string('nip', 10);
+            $table->string('telefono', 10);
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateClienteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Cliente');
+        Schema::dropIfExists('clientes');
     }
 }

@@ -13,8 +13,11 @@ class CreateBodegaTable extends Migration
      */
     public function up()
     {
-        Schema::create('Bodega', function (Blueprint $table) {
-            $table->id();
+        Schema::create('bodegas', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->integer('cantExistente');
+            $table->double('precioUnitario');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateBodegaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Bodega');
+        Schema::dropIfExists('bodegas');
     }
 }

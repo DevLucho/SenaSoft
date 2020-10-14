@@ -13,8 +13,11 @@ class CreateUsuariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('Usuarios', function (Blueprint $table) {
-            $table->id();
+        Schema::create('usuarios', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateUsuariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Usuarios');
+        Schema::dropIfExists('usuarios');
     }
 }

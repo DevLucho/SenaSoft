@@ -13,8 +13,12 @@ class CreateProductoTable extends Migration
      */
     public function up()
     {
-        Schema::create('Producto', function (Blueprint $table) {
-            $table->id();
+        Schema::create('productos', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('nombre', 100)->unique();
+            $table->integer('cantidadMinima');
+            $table->double('costoUnitario');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateProductoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Producto');
+        Schema::dropIfExists('productos');
     }
 }
