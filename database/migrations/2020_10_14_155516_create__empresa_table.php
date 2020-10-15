@@ -20,7 +20,7 @@ class CreateEmpresaTable extends Migration
             $table->string('nit', 20);
             $table->string('direccion', 100);
             $table->string('telefono', 10);
-            $table->string('logo');
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }

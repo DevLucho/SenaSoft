@@ -10,6 +10,7 @@ use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\FacturaProductoController;
 use App\Http\Controllers\ProveedorController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //rutas para sucursales
@@ -67,3 +69,9 @@ Route::get('facturas-productos/create', [FacturaProductoController::class,'creat
 Route::get('facturas-productos/crea', [FacturaProductoController::class,'create'] )->name('facturas-productos.crea');
 Route::post('facturas-productos',[FacturaProductoController::class, 'store'])->name('facturas-productos.store');
 Route::get('facturas-productos/index', [FacturaProductoController::class, 'index'] )->name('facturas-productos.index');
+//rutas para 
+
+Route::resource('productos', ProductoController::class);
+
+Route::post('welcome', [ProductoController::class, 'importExcel'])->name('import.excel');
+

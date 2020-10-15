@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProveedorTable extends Migration
+class CreateProveedoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,7 +18,7 @@ class CreateProveedorTable extends Migration
             $table->increments('id');
             $table->string('direccion', 100);
             $table->string('telefono', 10);
-            $table->string('logo');
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }

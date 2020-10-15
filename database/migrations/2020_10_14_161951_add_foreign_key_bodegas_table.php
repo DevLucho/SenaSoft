@@ -14,9 +14,6 @@ class AddForeignKeyBodegasTable extends Migration
     public function up()
     {
         Schema::table('bodegas', function (Blueprint $table) {
-            $table->integer('usuario')->unsigned();
-            $table->foreign('usuario')->references('id')->on('users')
-                ->onDelete('cascade')->onUpdate('cascade');
             $table->integer('empresa')->unsigned();
             $table->foreign('empresa')->references('id')->on('empresas')
                 ->onDelete('cascade')->onUpdate('cascade');
@@ -31,7 +28,6 @@ class AddForeignKeyBodegasTable extends Migration
     public function down()
     {
         Schema::table('bodegas', function (Blueprint $table) {
-            $table->dropForeign('bodega_usuario_id_foreign');
             $table->dropForeign('bodega_empresa_id_foreign');
         });
     }

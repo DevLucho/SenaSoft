@@ -10903,3 +10903,34 @@ a.text-dark:focus {
   }
 }
 
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.logo {
+  width: 3rem;
+  height: 3rem;
+  margin-top: -0.35rem;
+  margin-right: 0.8rem;
+}
+
+.btn-Hack {
+  background-color: #67CB99;
+  color: white;
+}
+
+.btn-Hack:hover {
+  background-color: #46a174;
+  color: white;
+}
+
+.footer-hack {
+  position: fixed;
+  bottom: 0;
+  background-color: black;
+  color: white;
+  width: 100%;
+  padding: 0.4rem 1rem;
+  font-size: 0.8em;
+}
+
