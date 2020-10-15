@@ -16,11 +16,12 @@ class SucursalController extends Controller
     }
     public function store(Request $request)
     {
-
         $empresa =  empresa::where('usuario', Auth::user()->id)->first();
         $usuario = new User();
-        $usuario->email = preg_replace('/\s+/', '', $request->gerente) . "@" . $empresa->usuario->nombre . ".com";
+        $usuario->name =  'Sucursal de '.Auth::user()->name;
+        $usuario->email = preg_replace('/\s+/', '', $request->gerente) . "@" . preg_replace('/\s+/', '', Auth::user()->name) . ".com";
         $usuario->password = bcrypt('password');
+        $usuario->rol = 2;
         $usuario->save();
         $sucursal = new sucursal();
         $sucursal->gerente = $request->gerente;
@@ -29,8 +30,10 @@ class SucursalController extends Controller
         $sucursal->usuario = $usuario->id;
         $sucursal->empresa = $empresa->id;
         $sucursal->save();
+
+        return view('home');
     }
-    
+
     public function index()
     {
         $empresa = empresa::where('usuario', Auth::user()->id)->first();

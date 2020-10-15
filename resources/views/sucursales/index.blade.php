@@ -3,8 +3,8 @@
     <div class="row">
         <div class="col-md-8 border-right">
             <h3>Sucursales vinculadas</h3>
-            <div class="row mb">
-                @foreach ($sucursales as $sucursal)
+            <div class="row mt-5">
+                @foreach ($sucursales ?? '' as $sucursal)
                     <a class="col-md-10 offset-md-1 btn btn-Hack mb-2" style="display: flex; justify-content: space-between; align-items: center; flex-direction: row;" data-toggle="collapse" href="#Sucursal{{$sucursal->id}}" role="button"
                         aria-expanded="false" aria-controls="collapseExample">
                         <p>{{ $sucursal->gerente }} ({{$sucursal->direccion}})</p>
@@ -22,13 +22,13 @@
                     </div>
                 @endforeach
                 <div class="mt-3 flex-row-CC text-Hack">
-                    {{ $sucursales->links() }}                     
+                    {{ $sucursales ?? ''->links() }}                     
                 </div>
             </div>
         </div>
         <div class="col-md-4 ">
             <h4 class="text-center mt-4 mb-4">Añadir sucursal</h4>
-            <form action="{{route(sucursal.store)}}" method="POST">
+            <form action="{{route('sucursales.store')}}" method="POST">
                 @csrf
                 <div class="form-group row">
                     <div class="col-md-12">
