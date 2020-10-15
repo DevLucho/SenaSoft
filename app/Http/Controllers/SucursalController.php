@@ -10,15 +10,31 @@ use Illuminate\Support\Facades\Auth;
 
 class SucursalController extends Controller
 {
-    public function create(){
+    public function create()
+    {
         return view('sucursales.create');
     }
-    public function store(){
+    public function store(Request $request)
+    {
 
+        $empresa =  empresa::where('usuario', Auth::user()->id)->first();
+        $usuario = new User();
+        $usuario->email = preg_replace('/\s+/', '', $request->gerente) . "@" . $empresa->usuario->nombre . ".com";
+        $usuario->password = bcrypt('password');
+        $usuario->save();
+        $sucursal = new sucursal();
+        $sucursal->gerente = $request->gerente;
+        $sucursal->direccion = $request->direccion;
+        $sucursal->telefono = $request->telefono;
+        $sucursal->usuario = $usuario->id;
+        $sucursal->empresa = $empresa->id;
+        $sucursal->save();
     }
-    public function index(){
-        $empresa=empresa::where('usuario', Auth::user()->id)->first();
-        $sucursales=sucursal::where('empresa', $empresa->id)->paginate(5);
+    
+    public function index()
+    {
+        $empresa = empresa::where('usuario', Auth::user()->id)->first();
+        $sucursales = sucursal::where('empresa', $empresa->id)->paginate(5);
         return view('sucursales.index', compact('sucursales'));
     }
 }

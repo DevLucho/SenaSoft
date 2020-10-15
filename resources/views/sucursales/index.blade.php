@@ -28,7 +28,7 @@
         </div>
         <div class="col-md-4 ">
             <h4 class="text-center mt-4 mb-4">Añadir sucursal</h4>
-            <form action="#" method="POST">
+            <form action="{{route(sucursal.store)}}" method="POST">
                 @csrf
                 <div class="form-group row">
                     <div class="col-md-12">
