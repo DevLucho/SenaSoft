@@ -18,7 +18,7 @@ class SucursalController extends Controller
         
         $empresa =  empresa::where('usuario',Auth::user()->id)->first();
         $usuario = new User();
-        $usuario->email =$request->gerente."@".$empresa->usuario->nombre.".com";
+        $usuario->email =preg_replace('/\s+/','',$request->gerente)."@".$empresa->usuario->nombre.".com";
         $usuario->password =bcrypt('password');
         $usuario->save();
         $sucursal = new sucursal();
