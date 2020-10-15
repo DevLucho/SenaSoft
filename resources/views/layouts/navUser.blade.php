@@ -13,22 +13,34 @@
             <ul class="navbar-nav mr-auto">
 
             </ul>
-
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Authentication Links -->
-                    <li class="nav-item dropdown">
-                         <a href="{{ route('logout') }}"
+                <ul class="navbar-nav">
+                    @if (Auth::user()::where('id', Auth::user()->id)->value('rol')== 1)
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Sucursales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Bodega</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Proveedores</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">NO empresa</a>
+                        </li>
+                    @endif
+                  <li class="nav-item">
+                    <a title="Cerrar sesión" class="nav-link" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
-                            Cerrar sesión
+                            <i class="fas fa-power-off"></i>
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
-                    </li>
-            </ul>
-        </div>
+                  </li>
+                </ul>
+              </div>
     </div>
 </nav>

@@ -8,3 +8,23 @@ body{
     margin-top: -0.5rem;
     margin-right: 1rem;
 }
+
+.btn-Hack{
+    background-color: #67CB99;
+    color: white;
+}
+
+.btn-Hack:hover{
+    background-color: #46a174;
+    color: white;
+}
+
+.footer-hack{
+    position: fixed; 
+    bottom: 0; 
+    background-color: black; 
+    color: white; 
+    width: 100%; 
+    padding: 0.4rem 1rem; 
+    font-size: 0.8em;
+}

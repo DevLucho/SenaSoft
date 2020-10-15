@@ -9,12 +9,15 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="shorcut icon" href="{{asset('storage/icon.png')}}">
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/11c72a119e.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -22,14 +25,21 @@
 <body>
     <div id="app">
         @guest
-             @include('layouts/navGuest')
+            @include('layouts/navGuest')
         @else
             @include('layouts/navUser')
         @endguest
         
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                @yield('content')
+            </div>
         </main>
+        @guest
+            <footer style="position: fixed; bottom: 0; background-color: black; color: white; width: 100%; padding: 0.4rem 1rem; font-size: 0.8em;">
+            <p class="text-md-right">Developed by Hackathon (G28) &copy {{date("Y")}}</p>
+            </footer>  
+        @endguest
     </div>
 </body>
 </html>

@@ -6,11 +6,16 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Rol;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
     protected $table = 'users';
+    
+    public function rol(){
+        return $this->hasOne('App\Models\Rol', 'foreign_key');
+    }
 
     /**
      * The attributes that are mass assignable.

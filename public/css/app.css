@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
@@ -10912,5 +10912,15 @@ body {
   height: 3rem;
   margin-top: -0.5rem;
   margin-right: 1rem;
+}
+
+.btn-Hack {
+  background-color: #67CB99;
+  color: white;
+}
+
+.btn-Hack:hover {
+  background-color: #46a174;
+  color: white;
 }
 
