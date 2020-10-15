@@ -128,5 +128,14 @@
                 </div>
             </div>
         </div>
+        <form action="{{route('import.excel')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            {{-- 
+            @if(Session::has('message'))
+            <p>{{Session::get('message')}}</p>    
+            @endif --}}
+            <input type="file" name="file" accept=".xlsx, .xls">
+            <button>Importar productos</button>
+            </form>
     </body>
 </html>
