@@ -64,5 +64,6 @@ Route::post('facturas',[FacturaController::class, 'store'])->name('facturas.stor
 Route::get('facturas/index', [FacturaController::class, 'index'] )->name('facturas.index');
 //rutas para  factuars-productos
 Route::get('facturas-productos/create', [FacturaProductoController::class,'create'] )->name('facturas-productos.create');
+Route::get('facturas-productos/crea', [FacturaProductoController::class,'create'] )->name('facturas-productos.crea');
 Route::post('facturas-productos',[FacturaProductoController::class, 'store'])->name('facturas-productos.store');
 Route::get('facturas-productos/index', [FacturaProductoController::class, 'index'] )->name('facturas-productos.index');

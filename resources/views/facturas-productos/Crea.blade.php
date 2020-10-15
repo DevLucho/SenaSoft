@@ -1,7 +1,5 @@
 
 
-{{$facturaxd->id}}
-
 
 <form action="{{url('facturas-productos')}}" method="POST">
     @csrf
@@ -21,7 +19,7 @@
         <label for="factura" class="col-md-4 col-form-label text-md-right"  ></label>
 
         <div class="col-md-6">
-            <input id="factura"  class="form-control @error('factura') is-invalid @enderror" name="factura" value="{{$facturaxd->id}}" autocomplete="factura" readonly>
+            <input id="factura"  class="form-control @error('factura') is-invalid @enderror" name="factura" value="{{$facturaxd->factura}}" autocomplete="factura" readonly>
 
             @error('factura')
                 <span class="invalid-feedback" role="alert">
@@ -43,6 +41,5 @@
             @enderror
         </div>
     </div>
-  
      <button type="summit">Subir </button>
 </form>
