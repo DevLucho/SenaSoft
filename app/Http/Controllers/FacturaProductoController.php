@@ -18,6 +18,9 @@ class FacturaProductoController extends Controller
         $factura_producto->factura = $request->factura;
         $factura_producto->cantSolicitada = $request->cantSolicitada;
         $factura_producto->save();
+        $affected = DB::table('productos')
+              ->where('id', $factura_producto->id)
+              ->update(['cantidadMinima ' => $request->cantSolicitada]);
         $facturaxd = $factura_producto;
         $facturaxd->find($factura_producto->factura);
         $productos = producto::all();
