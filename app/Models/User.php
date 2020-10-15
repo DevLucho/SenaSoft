@@ -12,9 +12,9 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
     protected $table = 'users';
-    
-    public function rol(){
-        return $this->hasOne('App\Models\Rol', 'foreign_key');
+
+    public function empresas(){
+        return $this->hasOne(empresa::class, 'usuario');
     }
 
     /**

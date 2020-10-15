@@ -12,6 +12,8 @@ use App\Models\Bodega;
 
 class EmpresaController extends Controller
 {
+
+
     public function create()
     {
         return view('empresas.create');
@@ -48,5 +50,10 @@ class EmpresaController extends Controller
     }
     public function index()
     {
+    }
+
+    public function obtenerLogo(User $user){
+        $logo = Empresa::where('usuario', $user)->value('logo');
+        return $logo;
     }
 }

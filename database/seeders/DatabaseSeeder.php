@@ -2,7 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\bodega;
+use App\Models\empresa;
 use App\Models\Rol;
+use App\Models\sucursal;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,8 +19,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        $rol = new Rol();
-        $rol->nombre_rol = "Empresa";
-        $rol->save();
+
+
+        $this->call(RolSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(EmpresaSeeder::class);
+        $this->call(BodegaSeeder::class);
+        $this->call(SucursalSeeder::class);
+ 
     }
 }

@@ -8,5 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class empresa extends Model
 {
     use HasFactory;
-protected $table = 'empresas';
+    protected $table = 'empresas';
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'logo'
+    ];
 }

@@ -36,7 +36,9 @@
             </div>
         </main>
         @guest
-            <footer style="position: fixed; bottom: 0; background-color: black; color: white; width: 100%; padding: 0.4rem 1rem; font-size: 0.8em;">
+            
+        @else
+            <footer class="footer-hack">
             <p class="text-md-right">Developed by Hackathon (G28) &copy {{date("Y")}}</p>
             </footer>  
         @endguest

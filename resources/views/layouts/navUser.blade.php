@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{-- <img class="logo" src="{{asset('storage/icon.png')}}" alt=""> --}}
+                <img class="logo" src="{{asset('storage/'.Auth::user()->empresas->logo)}}" alt="">
                 {{ Auth::user()->name }}
             </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -16,7 +16,7 @@
                 <ul class="navbar-nav">
                     @if (Auth::user()::where('id', Auth::user()->id)->value('rol')== 1)
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Sucursales</a>
+                            <a href="{{route('sucursales.index')}}" class="nav-link">Sucursales</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Bodega</a>
