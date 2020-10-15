@@ -1,5 +1,6 @@
 
-
+@extends('layouts/app')
+@section('content')
 
 <form action="{{url('facturas-productos')}}" method="POST">
     @csrf
@@ -41,6 +42,7 @@
             @enderror
         </div>
     </div>
-    <p>{{$resta}}</p>
+   
      <button type="summit">Subir </button>
 </form>
+@endsection

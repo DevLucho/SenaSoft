@@ -27,12 +27,12 @@ class FacturaProductoController extends Controller
         $factura_producto->cantSolicitada = $request->cantSolicitada;
         $factura_producto->save();
         // $user = Auth::user()->id;
-        $user = User::where('id', 1)->first();
-        $sucursal = sucursal::where('usuario', $user)->value('empresa');
-        $empresa = empresa::where('id', $sucursal)->first();
-        $bodega = bodega::where('empresa', $empresa)->first();
-        $bodegaProd = bodaga_producto::where('producto', $factura_producto->producto)->where('bodega', $bodega)->first();
-        $resta = $bodegaProd->cantExistente - $factura_producto->cantSolicitada;
+        // $user = User::where('id', 1)->first();
+        // $sucursal = sucursal::where('usuario', $user)->value('empresa');
+        // $empresa = empresa::where('id', $sucursal)->first();
+        // $bodega = bodega::where('empresa', $empresa)->first();
+        // $bodegaProd = bodaga_producto::where('producto', $factura_producto->producto)->where('bodega', $bodega)->first();
+        // $resta = $bodegaProd->cantExistente - $factura_producto->cantSolicitada;
 
         // $bodegaProd->cantExistente = $resta;
         // $bodegaProd->save();
@@ -42,6 +42,6 @@ class FacturaProductoController extends Controller
         $facturaxd = $factura_producto;
         $facturaxd->find($factura_producto->factura);
         $productos = producto::all();
-        return view('facturas-productos.crea', compact('facturaxd', 'productos', 'resta'));
+        return view('facturas-productos.crea', compact('facturaxd', 'productos'));
     }
 }

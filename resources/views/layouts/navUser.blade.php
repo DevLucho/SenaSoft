@@ -19,6 +19,9 @@
                             <a href="{{route('sucursales.index')}}" class="nav-link">Sucursales</a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{route('facturas.create')}}" class="nav-link">Facturas</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="#" class="nav-link">Bodega</a>
                         </li>
                         <li class="nav-item">

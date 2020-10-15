@@ -7,12 +7,17 @@ use App\Models\User;
 use App\Models\Rol;
 use App\Models\Empresa;
 use App\Models\Bodega;
-
+use App\Providers\RouteServiceProvider;
 
 
 class EmpresaController extends Controller
 {
-
+     /**
+     * Where to redirect users after registration.
+     *
+     * @var string
+     */
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     public function create()
     {
@@ -42,11 +47,12 @@ class EmpresaController extends Controller
             $empresa['logo']=$nombre;
         }
         $empresa->save();
-
+          
         //Bodega
         $bodega = new Bodega();
         $bodega->empresa = $empresa->id;
         $bodega->save();
+        return view('Auth.login');
     }
     public function index()
     {

@@ -1,4 +1,5 @@
-
+@extends('layouts/app')
+@section('content')
 <form action="{{url('facturas')}}" method="POST">
     @csrf
    
@@ -33,3 +34,4 @@
 
      <button type="summit">Subir </button>
 </form>
+@endsection

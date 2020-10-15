@@ -5,6 +5,10 @@ use App\Http\Controllers\SucursalController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\BodegaController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\FacturaController;
+use App\Http\Controllers\FacturaProductoController;
+use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\SweetController;
 use Illuminate\Support\facades\Mail;
 
@@ -69,10 +73,24 @@ Route::get('bodegas/create', [BodegaController::class,'create'] )->name('bodegas
 Route::post('bodegas',[BodegaController::class, 'store'])->name('bodegas.store');
 Route::get('bodegas/index', [BodegaController::class,'index'] )->name('bodegas.index');
 
-//rutas para
+//rutas para proveedores uwu
+Route::get('proveedores/create', [ProveedorController::class,'create'] )->name('proveedores.create');
+Route::post('proveedores',[ProveedorController::class, 'store'])->name('proveedores.store');
+Route::get('proveedores/index', [ProveedorController::class, 'index'] )->name('proveedores.index');
 
-
-//rutas para
+//rutas para  clientes
+Route::get('clientes/create', [ClienteController::class,'create'] )->name('clientes.create');
+Route::post('clientes',[ClienteController::class, 'store'])->name('clientes.store');
+Route::get('clientes/index', [ClienteController::class, 'index'] )->name('clientes.index');
+//rutas para  factuars
+Route::get('facturas/create', [FacturaController::class,'create'] )->name('facturas.create');
+Route::post('facturas',[FacturaController::class, 'store'])->name('facturas.store');
+Route::get('facturas/index', [FacturaController::class, 'index'] )->name('facturas.index');
+//rutas para  factuars-productos
+Route::get('facturas-productos/create', [FacturaProductoController::class,'create'] )->name('facturas-productos.create');
+Route::get('facturas-productos/crea', [FacturaProductoController::class,'create'] )->name('facturas-productos.crea');
+Route::post('facturas-productos',[FacturaProductoController::class, 'store'])->name('facturas-productos.store');
+Route::get('facturas-productos/index', [FacturaProductoController::class, 'index'] )->name('facturas-productos.index');
 
 Route::resource('productos', ProductoController::class);
 
