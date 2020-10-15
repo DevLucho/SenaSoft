@@ -24,6 +24,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Proveedores</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('productos.index')}}">Productos</a>
+                        </li>
                     @else
                         <li class="nav-item">
                             <a class="nav-link" href="#">NO empresa</a>

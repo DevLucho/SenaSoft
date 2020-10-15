@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreProducto extends FormRequest
 {
@@ -25,7 +26,10 @@ class StoreProducto extends FormRequest
     {
          // Validaciones
          return [
-            'nombre' => 'required',
+            'nombre' => [
+                'required',
+                Rule::unique('productos')->ignore($this->route('productos'))
+            ],
             'cantidadMinima' => 'required',
             'costoUnitario' => 'required',
             'img'=>'required|image|max:2048'
