@@ -41,5 +41,6 @@
             @enderror
         </div>
     </div>
+    <p>{{$resta}}</p>
      <button type="summit">Subir </button>
 </form>
