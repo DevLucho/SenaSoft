@@ -5,6 +5,8 @@ use App\Http\Controllers\SucursalController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\BodegaController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,9 +24,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //rutas para sucursales
@@ -52,3 +51,8 @@ Route::get('bodegas/index', [BodegaController::class,'index'] )->name('bodegas.i
 
 
 //rutas para 
+
+Route::resource('productos', ProductoController::class);
+
+Route::post('welcome', [ProductoController::class, 'importExcel'])->name('import.excel');
+

@@ -1,6 +1,6 @@
 @extends('layouts/app')
 @section('content')
-<form action="{{url('empresas')}}" method="POST">
+<form action="{{url('empresas')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group row">
         <label for="email" class="text-md-left offset-md-2 col-md-2 col-form-label">{{ __('Correo electrónico') }}</label>
@@ -98,8 +98,10 @@
         <label for="logo" class=" col-form-label text-md-left offset-md-2 col-md-2">{{ __('Logo') }}</label>
 
         <div class="col-md-6">
-            <input id="logo" placeholder="Proximamente..." type="number" class="form-control @error('logo') is-invalid @enderror" name="logo" value="{{ old('logo') }}" required autocomplete="logo" autofocus>
-
+            <input id="logo" type="file" name="img" placeholder="Proximamente..." class="form-control accept="image/" required>
+            @error('img')
+                <small class="text-danger">{{$message}}</small>
+            @enderror
             @error('logo')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

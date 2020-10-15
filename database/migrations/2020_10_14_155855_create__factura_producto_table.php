@@ -16,6 +16,7 @@ class CreateFacturaProductoTable extends Migration
         Schema::create('factura_producto', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->integer('cantSolicitada');
             $table->timestamps();
         });
     }
