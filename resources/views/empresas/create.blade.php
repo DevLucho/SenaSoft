@@ -98,7 +98,7 @@
         <label for="logo" class=" col-form-label text-md-left offset-md-2 col-md-2">{{ __('Logo') }}</label>
 
         <div class="col-md-6">
-            <input id="logo" type="file" name="img" placeholder="Proximamente..." class="form-control accept="image/" required>
+            <input id="logo" type="file" name="img" placeholder="Proximamente..." class=" accept="image/" required>
             @error('img')
                 <small class="text-danger">{{$message}}</small>
             @enderror

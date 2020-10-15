@@ -21,10 +21,37 @@ body{
 
 .footer-hack{
     position: fixed; 
+    z-index: 1000;
     bottom: 0; 
     background-color: black; 
     color: white; 
     width: 100%; 
     padding: 0.4rem 1rem; 
     font-size: 0.8em;
+}
+
+.flex-row-CC{
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.scrollbarStyle::-webkit-scrollbar{
+    width: 5px;
+}
+
+.scrollbarStyle::-webkit-scrollbar-thumb{
+    background-color: #46a174;
+}
+
+.text-Hack a{
+    color: #67CB99 !important;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #46a174;
+    border-color: #67CB99;
 }

@@ -22,7 +22,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="scrollbarStyle">
     <div id="app">
         @guest
             @include('layouts/navGuest')
