@@ -9,7 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="shorcut icon" href="{{asset('storage/icon.jpeg')}}">
+    <link rel="shorcut icon" href="{{asset('storage/icon.png')}}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

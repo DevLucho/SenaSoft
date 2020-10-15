@@ -20,24 +20,24 @@ use Illuminate\Support\facades\Mail;
 
 Route::get('/', function () {
 
-    // envio de email
+    // // envio de email
 
-    $datos=[
-        "titulo"=>"Hola",
-        "contenido"=>"Prueba envio"
-    ];
+    // $datos=[
+    //     "titulo"=>"Hola",
+    //     "contenido"=>"Prueba envio"
+    // ];
 
-    Mail::send('emails.test', $datos, function ($message) {
-        // $message->from('john@johndoe.com', 'John Doe');
-        $message->sender('Hackathon@gmail.com', 'John Doe');
-        $message->to('ldhuertas56@misena.edu.co', 'Luis Huertas');
-        // $message->cc('john@johndoe.com', 'John Doe');
-        // $message->bcc('john@johndoe.com', 'John Doe');
-        // $message->replyTo('john@johndoe.com', 'John Doe');
-        $message->subject('Mensaje Importante');
-        // $message->priority(3);
-        // $message->attach('pathToFile');
-    });
+    // Mail::send('emails.test', $datos, function ($message) {
+    //     // $message->from('john@johndoe.com', 'John Doe');
+    //     $message->sender('Hackathon@gmail.com', 'John Doe');
+    //     $message->to('ldhuertas56@misena.edu.co', 'Luis Huertas');
+    //     // $message->cc('john@johndoe.com', 'John Doe');
+    //     // $message->bcc('john@johndoe.com', 'John Doe');
+    //     // $message->replyTo('john@johndoe.com', 'John Doe');
+    //     $message->subject('Mensaje Importante');
+    //     // $message->priority(3);
+    //     // $message->attach('pathToFile');
+    // });
 
     return view('welcome');
 
