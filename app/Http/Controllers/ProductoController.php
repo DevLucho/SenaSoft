@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProducto;
 use App\Imports\ProductImport;
+use App\Models\bodaga_producto;
+use App\Models\bodega;
+use App\Models\empresa;
 use App\Models\producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -42,6 +46,14 @@ class ProductoController extends Controller
             $producto['img']=$nombre;
         }
         Producto::create($producto);
+        // if(Auth::user()->rol == 1){
+        //     $empresa = empresa::where('usuario', Auth::user()->id)->first();
+        //     $bodega = bodega::where('empresa', $empresa->id)->first();
+        //     $bp = new bodaga_producto();
+        //     $bp->bodega = $bodega;
+        //     $bp->producto=$producto;
+        //     $bp->save();
+        // }
         return redirect()->route('productos.index', $producto);
         // return $request->all();
     }

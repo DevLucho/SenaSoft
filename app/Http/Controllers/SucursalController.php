@@ -40,4 +40,11 @@ class SucursalController extends Controller
         $sucursales = sucursal::where('empresa', $empresa->id)->paginate(5);
         return view('sucursales.index', compact('sucursales'));
     }
+
+    public function destroy($id){
+        $sucursal = sucursal::Find($id);
+        $sucursal->delete();
+        return view('home');
+
+  }
 }

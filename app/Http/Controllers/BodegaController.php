@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\bodaga_producto;
 use Illuminate\Http\Request;
 use App\Models\Empresa;
 use App\Models\User;
 use App\Models\Rol;
 use App\Providers\RouteServiceProvider;
 use App\Models\bodega;
+use Illuminate\Support\Facades\Auth;
 
 class BodegaController extends Controller
 {
@@ -29,8 +31,10 @@ class BodegaController extends Controller
    
     }
     public function index(){
-        $bodegas = bodega::all();
-        return view('bodegas.index', compact('bodegas'));
+        $empresa = empresa::where('usuario', Auth::user()->id)->first();
+        $bodega = bodega::where('empresa', $empresa->id)->first();
+        $productos = bodaga_producto::where('bodega', $bodega->id)->get();
+        return view('bodegas.index', compact('productos'));
 
     }
 }

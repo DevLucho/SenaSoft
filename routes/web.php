@@ -54,6 +54,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('sucursales/create', [sucursalController::class,'create'] )->name('sucursales.create');
 Route::post('sucursales/index',[sucursalController::class, 'store'])->name('sucursales.store');
 Route::get('sucursales/index', [sucursalController::class,'index'] )->name('sucursales.index');
+Route::get('sucursales/{id}', [sucursalController::class,'destroy'] )->name('sucursal.destroy');
 
 
 //rutas para  producto

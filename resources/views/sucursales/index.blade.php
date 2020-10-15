@@ -8,7 +8,7 @@
                     <a class="col-md-10 offset-md-1 btn btn-Hack mb-2" style="display: flex; justify-content: space-between; align-items: center; flex-direction: row;" data-toggle="collapse" href="#Sucursal{{$sucursal->id}}" role="button"
                         aria-expanded="false" aria-controls="collapseExample">
                         <p>{{ $sucursal->gerente }} ({{$sucursal->direccion}})</p>
-                        <i title="Desvincular sucursal" class="fas fa-trash"></i>
+                    
                     </a>
                     <div class="collapse col-md-10 offset-md-1 mb-2" id="Sucursal{{$sucursal->id}}">
                         <div class="card card-body">
@@ -17,12 +17,13 @@
                             <p class="col-md-6"><b>Dirección: </b>{{$sucursal->direccion}}</p>
                             <p class="col-md-6"><b>Telefono: </b>{{$sucursal->telefono}}</p>
                             <p class="col-md-6"><b>Vinculado desde: </b>{{$sucursal->created_at}}</p>
+                            <a class="ml-3" style="color: #46a174;" href="{{route('sucursal.destroy',$sucursal->id)}}"><i title="Desvincular sucursal" class="fas fa-trash"></i> Desvincular sucursal</a>
                         </div>
                         </div>
                     </div>
                 @endforeach
                 <div class="mt-3 flex-row-CC text-Hack">
-                    {{ $sucursales ?? ''->links() }}                     
+                    {{ $sucursales ?? '' ?? ''->links() }}                     
                 </div>
             </div>
         </div>

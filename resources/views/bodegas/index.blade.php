@@ -1,7 +1,19 @@
 @extends('layouts/app')
 
 @section('content')
-@include('bodegas/navBodega')
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+        @include('bodegas/navBodega')
+        <div class="col-md-12">
+            Holiwi
+        </div>
+    </div>
+    </div>
+    @include('productos/create')
+    
+</div>
+
 
 
 @endsection

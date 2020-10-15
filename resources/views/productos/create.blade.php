@@ -1,67 +1,28 @@
 
-@extends('layouts/app')
-@section('content')
+<div class="col-md-4">
+    <h3 class="mb-4">Añadir producto</h3>
+
     <form action="{{route('productos.store')}}" method="POST" enctype="multipart/form-data">
         @csrf <!-- token -->
-            <label for="">Nombre producto:</label>
-            <br>
-            <input type="text" name="nombre" value="{{old('nombre')}}" id="">
+
+            <input type="text" class="form-control" name="nombre" placeholder="Nombre" value="{{old('nombre')}}" id="">
             <br>
             @error('nombre')
                 <small>{{$message}}</small>
                 <br>
             @enderror
-        <br>
-        <label for="">Cantidad que ingresa:</label>
-            <br>
-            <input type="number" name="cantidadMinima" value="{{old('cantidadMinima')}}">
+            <input type="number" name="cantidadMinima" class="form-control" placeholder="Cantidad Minima" value="{{old('cantidadMinima')}}">
         @error('cantidadMinima')
-        <br>
+
             <small>{{$message}}</small>
-            <br>
         @enderror
         <br>
-        <label for="">Valor unitario:</label>
-            <br>
-            <input type="number" name="costoUnitario"  value="{{old('costoUnitario')}}" id="">
+            <input type="number" class="form-control" name="costoUnitario" placeholder="Precio unitario"  value="{{old('costoUnitario')}}" id="">
         @error('costoUnitario')
         <br>
             <small>{{$message}}</small>
             <br>
         @enderror
-
-<form action="{{url('productos')}}" method="POST">
-    @csrf
-   
-    <div class="form-group row">
-        <label for="id" class="col-md-4 col-form-label text-md-right">{{ __('id') }}</label>
-
-        <div class="col-md-6">
-            <input id="id" type="id" class="form-control @error('id') is-invalid @enderror" name="id" value="{{ old('id') }}" required autocomplete="id" autofocus>
-
-            @error('id')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="cantidadMinima " class="col-md-4 col-form-label text-md-right">{{ __('cantidadMinima ') }}</label>
-
-        <div class="col-md-6">
-            <input id="cantidadMinima" type="cantidadMinima" class="form-control @error('cantidadMinima') is-invalcantidadMinima @enderror" name="cantidadMinima" value="{{ old('cantidadMinima') }}"  autocomplete="cantidadMinima" autofocus>
-
-            @error('cantidadMinima')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-    </div>
- <button type="submit"></button>
-</form>
-
         <br>
         <label for="">Imagen:</label>
         <br>
@@ -71,6 +32,6 @@
         @enderror
         <br>
         <br>
-        <button type="submit">Registrar</button>
+        <button type="submit" class="btn btn-Hack btn-block">Registrar</button>
     </form>
-@endsection
+</div>
