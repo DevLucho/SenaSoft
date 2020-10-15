@@ -7,6 +7,7 @@ use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\BodegaController;
 use App\Http\Controllers\SweetController;
 use Illuminate\Support\facades\Mail;
+use UxWeb\SweetAlert\SweetAlert;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,3 +79,9 @@ Route::resource('productos', ProductoController::class);
 
 Route::post('welcome', [ProductoController::class, 'importExcel'])->name('import.excel');
 
+
+Route::get('redirect', function(){
+    // alert()->success('Success Message', 'Optional Title');
+    SweetAlert::success('Success Message', 'Optional Title');
+    return redirect('/');
+});

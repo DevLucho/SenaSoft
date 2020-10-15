@@ -9,7 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <link rel="shorcut icon" href="{{asset('storage/icon.png')}}">
+    <link rel="shorcut icon" href="{{asset('storage/icon.jpeg')}}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -29,7 +29,7 @@
         @else
             @include('layouts/navUser')
         @endguest
-        
+
         <main class="py-4">
             <div class="container">
                 @yield('content')
@@ -38,8 +38,9 @@
         @guest
             <footer style="position: fixed; bottom: 0; background-color: black; color: white; width: 100%; padding: 0.4rem 1rem; font-size: 0.8em;">
             <p class="text-md-right">Developed by Hackathon (G28) &copy {{date("Y")}}</p>
-            </footer>  
+            </footer>
         @endguest
     </div>
+    {{-- Sweet Alert --}}
 </body>
 </html>

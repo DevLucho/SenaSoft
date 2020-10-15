@@ -5,6 +5,7 @@
     <br>
     <p><strong>Nombre: {{$producto->nombre}}</strong></p>
     <p><strong>Costo unitario: $@money($producto->costoUnitario) </strong></p>
+    <p><strong>Costo con IVA includio: $@money(($producto->costoUnitario)*0.19+$producto->costoUnitario) </strong></p>
 
     <img src="{{asset('storage/'.$producto->img)}}" alt="{{$producto->nombre}}">
 

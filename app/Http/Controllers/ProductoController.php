@@ -53,10 +53,17 @@ class ProductoController extends Controller
         return view('productos.edit', compact('producto'));
     }
 
-    public function update(StoreProducto $request, producto $producto)
+    public function update(StoreProducto $request, Producto $producto)
     {
-        $producto->update($request->all());
-        return redirect()->route('productos.show', $producto);
+        $data=$request->all();
+         if($img = $request->file('img')){
+            $nombre = $img->getClientOriginalName();
+            $img->move('storage',$nombre);
+            $data['img']=$nombre;
+        }
+        $producto->update($data);
+
+        return redirect()->route('productos.show', $producto)->with('info','Actualizado correctamente');
     }
 
     public function destroy(Producto $producto)
