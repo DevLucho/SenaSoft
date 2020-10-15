@@ -22,7 +22,10 @@
                         <a href="{{route('sucursales.index', Auth::user())}}" class="nav-link">Sucursales</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('bodegas.index')}}" class="nav-link">Bodega</a>
+                        <a href="{{route('productos.index')}}" class="nav-link">Bodega</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{route('facturas.create')}}">Facturas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Proveedores</a>

@@ -8,11 +8,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#"><i class="fas fa-boxes"></i> Productos<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('productos.index')}}"><i class="fas fa-boxes"></i> Productos<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fas fa-file-excel"></i> Importar </a>
-        </li>
+        {{-- <li class="nav-item">
+          <a class="nav-link" href="{{route('productos.index')}}"><i class="fas fa-file-excel"></i> Importar </a>
+        </li> --}}
       </ul>
     </div>
   </nav>

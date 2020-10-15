@@ -2,46 +2,31 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-7">
             <div class="row">
                 @include('bodegas/navBodega')
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-6">
-                            <a class="btn btn-Hack btn-block" href="{{ route('productos.create') }}">Añadir producto</a>
-                        </div>
-                        <div class="col-md-6">
-                            <form action="{{ route('import.excel') }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <input type="file" name="file" accept=".xlsx, .xls" required>
-
-                                @error('file')
-                                <small>{{ $message }}</small>
-                                @enderror
-                                <br>
-                                <button type="submit" class="btn btn-Hack btn-block">Importar</button>
-                            </form>
-
-                        </div>
-                    </div>
-
-
-                    <ul>
                         @foreach ($productos as $producto)
-                            <li>Ver producto: <a href="{{ route('productos.show', $producto) }}">{{ $producto->nombre }}</a>
-                            </li>
-                            <li>Editar producto: <a
-                                    href="{{ route('productos.edit', $producto) }}">{{ $producto->nombre }}</a></li>
-                            <img src="{{ asset('storage/' . $producto->img) }}" alt="{{ $producto->nombre }}">
-                            <hr>
+                            <div class="card mb-2 col-md-4" style="width: 18rem;">
+                                <img src="{{ asset('storage/' . $producto->img) }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $producto->nombre }}</h5>
+                                    <p class="card-text">$@money($producto->costoUnitario)</p>
+                                </div>
+                                <div class="card-footer" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+                                <a href="{{route('productos.show', $producto)}}"><i class="far fa-eye"></i>Ver</a>
+                                <a href="{{route('productos.edit', $producto)}}"><i class="fas fa-edit"></i>Editar</a>
+                                </div>
+                            </div>
                         @endforeach
-                    </ul>
-                    {{ $productos->links() }}
+                    </div>
                 </div>
             </div>
         </div>
-        @include('productos/create')
-
+        <div class="col-md-4 offset-md-1">
+            @include('productos/import')
+        </div>
     </div>
 
 @endsection

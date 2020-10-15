@@ -46,14 +46,14 @@ class ProductoController extends Controller
             $producto['img']=$nombre;
         }
         Producto::create($producto);
-        // if(Auth::user()->rol == 1){
-        //     $empresa = empresa::where('usuario', Auth::user()->id)->first();
-        //     $bodega = bodega::where('empresa', $empresa->id)->first();
-        //     $bp = new bodaga_producto();
-        //     $bp->bodega = $bodega;
-        //     $bp->producto=$producto;
-        //     $bp->save();
-        // }
+        if(Auth::user()->rol == 1){
+            $empresa = empresa::where('usuario', Auth::user()->id)->first();
+            $bodega = bodega::where('empresa', $empresa->id)->first();
+            $bp = new bodaga_producto();
+            $bp->bodega = $bodega;
+            $bp->producto=$producto;
+            $bp->save();
+        }
         return redirect()->route('productos.index', $producto);
         // return $request->all();
     }

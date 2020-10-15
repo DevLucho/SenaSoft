@@ -26,10 +26,10 @@ class StoreProducto extends FormRequest
     {
          // Validaciones
          return [
-            'nombre' => [
-                'required',
-                Rule::unique('productos')->ignore($this->route('productos'))
-            ],
+            // 'nombre' => [
+            //     'required',
+            //     Rule::unique('productos')->ignore($this->route('productos'))
+            // ],
             'cantidadMinima' => 'required',
             'costoUnitario' => 'required',
             'img'=>'required|image|max:2048'

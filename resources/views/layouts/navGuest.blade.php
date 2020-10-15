@@ -1,10 +1,11 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img class="logo" src="{{asset('storage/icon.png')}}" alt="">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+        <a class="navbar-brand" href="{{ url('/') }}">
+            <img class="logo" src="{{ asset('storage/icon.png') }}" alt="">
+            {{ config('app.name', 'Laravel') }}
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -17,15 +18,17 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Ingresar</a>
+                </li>
+                @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Ingresar</a>
+                        <a class="nav-link" href="{{ route('empresas.create') }}">Registrar empresa</a>
                     </li>
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('empresas.create') }}">Registrar empresa</a>
-                        </li>
-                    @endif
-
+                @endif
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Registrar proveedor</a>
+                </li>
             </ul>
         </div>
     </div>

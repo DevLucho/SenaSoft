@@ -9,8 +9,8 @@
     </style>
     <table class="table table-hover" style="width:100%">
         <thead>
+            <th scope="col">Cantidad</th>
             <th scope="col">id</th>
-            <th scope="col">estado</th>
         </thead>
         <tbody>
             @foreach($facturas as $factura)

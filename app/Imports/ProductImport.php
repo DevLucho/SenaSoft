@@ -17,7 +17,8 @@ class ProductImport implements ToModel
         return new Producto([
             'nombre' => $row[0],
             'cantidadMinima' => $row[1],
-            'costoUnitario' => $row[2]
+            'costoUnitario' => $row[2],
+            'img' => 'product.png'
         ]);
     }
 }
