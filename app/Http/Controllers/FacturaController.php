@@ -31,6 +31,17 @@ class FacturaController extends Controller
         $FacturaProducto = new factura_producto();
         $FacturaProducto->factura =$factura->id;
         $FacturaProducto->producto  = $request->productp;
+    }
 
+    public function index(Request $request){
+        
+        if ($request) {
+            $query = trim($request->get('search'));
+            $facturas = factura_producto::where('factura',$query)
+            ->orderby('id','asc')
+            ->get();
+            return view('facturas.index',['facturas' => $facturas, 'search' => $query]);
+        }
     }
 }
+

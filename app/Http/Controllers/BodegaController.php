@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Empresa;
 use App\Models\User;
+use App\Models\Rol;
+use App\Providers\RouteServiceProvider;
 use App\Models\bodega;
+
 class BodegaController extends Controller
 {
     public function create(){
@@ -23,7 +26,7 @@ class BodegaController extends Controller
      $bodega->usuario = $user->id;
      $bodega->empresa = $request->empresa;
      $bodega->save();
-
+   
     }
     public function index(){
         $bodegas = bodega::all();

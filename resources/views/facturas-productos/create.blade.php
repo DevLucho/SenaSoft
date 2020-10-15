@@ -1,6 +1,6 @@
 
-
-{{$facturaxd->id}}
+@extends('layouts/app')
+@section('content')
 
 
 <form action="{{url('facturas-productos')}}" method="POST">
@@ -46,3 +46,4 @@
   
      <button type="summit">Subir </button>
 </form>
+@endsection
