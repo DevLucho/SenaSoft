@@ -8,6 +8,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProducto;
 use App\Models\Producto;
+use Illuminate\Validation\Rule;
 
 class ProductoController extends Controller
 {
@@ -18,7 +19,7 @@ class ProductoController extends Controller
         $productos = Producto::orderBy('id', 'DESC')->paginate();
         return view('productos.index', compact('productos'));
     }
-    
+
     public function show(Producto $producto)
     {
         // $curso = Curso::find($id);
@@ -36,7 +37,7 @@ class ProductoController extends Controller
     {
         $producto = $request->all();
         // Extraer nombre del file y setarlo al campo img
-        if($img = $request->file('img')){ 
+        if($img = $request->file('img')){
             $nombre = $img->getClientOriginalName();
             $img->move('storage',$nombre);
             $producto['img']=$nombre;
@@ -53,10 +54,17 @@ class ProductoController extends Controller
         return view('productos.edit', compact('producto'));
     }
 
-    public function update(StoreProducto $request, producto $producto)
+    public function update(StoreProducto $request, Producto $producto)
     {
-        $producto->update($request->all());
-        return redirect()->route('productos.show', $producto);
+        $data=$request->all();
+         if($img = $request->file('img')){
+            $nombre = $img->getClientOriginalName();
+            $img->move('storage',$nombre);
+            $data['img']=$nombre;
+        }
+        $producto->update($data);
+
+        return redirect()->route('productos.show', $producto)->with('info','Actualizado correctamente');
     }
 
     public function destroy(Producto $producto)
@@ -69,9 +77,12 @@ class ProductoController extends Controller
     // Importar desde excel
     public function importExcel(Request $request)
     {
+        // $request->validate([
+        //     'nombre' => ['required','unique:productos,nombre'],
+        // ]);
         $file = $request->file('file');
         Excel::import(new ProductImport, $file);
-        return back()->with('messagge','Importacion exitosa');
+        return back()->with('info','Importacion exitosa');
     }
 
 

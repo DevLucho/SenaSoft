@@ -17,8 +17,9 @@ class CreateProductoTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('nombre', 100)->unique();
-            $table->integer('cantidadIngresada');
-            $table->string('imagen')->nullable();
+            $table->integer('cantidadMinima');
+            $table->double('costoUnitario');
+            $table->string('img')->nullable();
             $table->timestamps();
         });
     }

@@ -10926,7 +10926,10 @@ body {
 
 .footer-hack {
   position: fixed;
+<<<<<<< HEAD
   z-index: 1000;
+=======
+>>>>>>> e9e8e78ba702162436d4a4a822d0dcfaecd58d75
   bottom: 0;
   background-color: black;
   color: white;
@@ -10935,6 +10938,7 @@ body {
   font-size: 0.8em;
 }
 
+<<<<<<< HEAD
 .flex-row-CC {
   width: 100%;
   display: flex;
@@ -10961,3 +10965,5 @@ body {
   border-color: #67CB99;
 }
 
+=======
+>>>>>>> e9e8e78ba702162436d4a4a822d0dcfaecd58d75

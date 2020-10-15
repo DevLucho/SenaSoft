@@ -67,7 +67,7 @@
             @enderror
         </div>
     </div>
-    
+
     <div class="form-group row">
         <label for="direccion" class="text-md-left offset-md-2 col-md-2 col-form-label">{{ __('Dirección') }}</label>
 
@@ -112,6 +112,6 @@
     <div class="row">
         <button type="summit" class="col-md-8 offset-md-2 btn btn-block btn-Hack mt-4">Registrar empresa</button>
     </div>
-     
+
 </form>
 @endsection

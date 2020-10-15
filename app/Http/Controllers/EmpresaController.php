@@ -36,7 +36,7 @@ class EmpresaController extends Controller
         $empresa->direccion = $request->direccion;
         $empresa->telefono  = $request->telefono;
         $empresa->logo = $request->logo;
-        if($img = $request->file('img')){ 
+        if($img = $request->file('img')){
             $nombre = $img->getClientOriginalName();
             $img->move('storage',$nombre);
             $empresa['logo']=$nombre;
@@ -47,6 +47,8 @@ class EmpresaController extends Controller
         $bodega = new Bodega();
         $bodega->empresa = $empresa->id;
         $bodega->save();
+
+        return view('empresas.create');
     }
     public function index()
     {
