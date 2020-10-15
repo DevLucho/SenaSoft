@@ -5,7 +5,8 @@ use App\Http\Controllers\SucursalController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\BodegaController;
-
+use App\Http\Controllers\SweetController;
+use Illuminate\Support\facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,28 @@ use App\Http\Controllers\BodegaController;
 */
 
 Route::get('/', function () {
+
+    // envio de email
+
+    $datos=[
+        "titulo"=>"Hola",
+        "contenido"=>"Prueba envio"
+    ];
+
+    Mail::send('emails.test', $datos, function ($message) {
+        // $message->from('john@johndoe.com', 'John Doe');
+        $message->sender('Hackathon@gmail.com', 'John Doe');
+        $message->to('ldhuertas56@misena.edu.co', 'Luis Huertas');
+        // $message->cc('john@johndoe.com', 'John Doe');
+        // $message->bcc('john@johndoe.com', 'John Doe');
+        // $message->replyTo('john@johndoe.com', 'John Doe');
+        $message->subject('Mensaje Importante');
+        // $message->priority(3);
+        // $message->attach('pathToFile');
+    });
+
     return view('welcome');
+
 });
 
 Auth::routes();
@@ -47,10 +69,10 @@ Route::get('bodegas/create', [BodegaController::class,'create'] )->name('bodegas
 Route::post('bodegas',[BodegaController::class, 'store'])->name('bodegas.store');
 Route::get('bodegas/index', [BodegaController::class,'index'] )->name('bodegas.index');
 
-//rutas para 
+//rutas para
 
 
-//rutas para 
+//rutas para
 
 Route::resource('productos', ProductoController::class);
 
