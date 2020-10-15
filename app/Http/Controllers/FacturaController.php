@@ -34,16 +34,14 @@ class FacturaController extends Controller
     }
 
     public function index(Request $request){
-        $query = trim($request->get('search'));
         
         if ($request) {
             $query = trim($request->get('search'));
-            $factura = Factura::where('id', 'LIKE' ,'%' . $query . '%')
+            $facturas = factura_producto::where('factura',$query)
             ->orderby('id','asc')
             ->get();
-            return view('facturas.index',['facturas' => $factura, 'search' => $query]);
+            return view('facturas.index',['facturas' => $facturas, 'search' => $query]);
         }
-
-}
+    }
 }
 

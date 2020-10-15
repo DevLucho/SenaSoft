@@ -45,4 +45,15 @@
    
      <button type="summit">Subir </button>
 </form>
+<form class="form-inline ml-3" action="{{route('facturas.index')}}" method="GET">
+    <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" style="display: none" name="search" type="search" value="{{$facturaxd->factura}}" >
+        <div class="input-group-append">
+            <button class="btn btn-navbar" type="submit"> 
+             Hacer compra :D
+                <i class=""></i>
+            </button>
+        </div>
+    </div>
+</form>
 @endsection
