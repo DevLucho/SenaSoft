@@ -17,8 +17,8 @@ class CreateFacturaTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->enum('estado', ['Finalizada', 'Borrador', 'En espera']);
-            $table->double('valorNeto');
-            $table->double('valorTotal');
+            $table->double('valorNeto')->nullable();
+            $table->double('valorTotal')->nullable();
             $table->timestamps();
         });
     }

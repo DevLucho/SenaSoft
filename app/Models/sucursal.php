@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class sucursal extends Model
 {
     use HasFactory;
+    protected $table = 'sucursales';
 }

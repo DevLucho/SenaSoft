@@ -22,7 +22,12 @@ class BodegaController extends Controller
      $bodega = new Bodega();
      $bodega->usuario = $user->id;
      $bodega->empresa = $request->empresa;
-     
+     $bodega->save();
+
+    }
+    public function index(){
+        $bodegas = bodega::all();
+        return view('bodegas.index', compact('bodegas'));
 
     }
 }
